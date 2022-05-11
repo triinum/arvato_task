@@ -60,13 +60,13 @@ public class stepsAPI {
     @Then("server responds with HTTP response code {int}")
     public void checkStatusCode(int statusCode) {
         // Asserting that status code from the response is equal to expected status code
-        Assert.assertEquals(response.getStatusCode(), statusCode);
+        Assert.assertEquals(statusCode, response.getStatusCode(),);
     }
 
     @And("response body contains isValid {string}")
     public void checkIsValid(String isValid) {
         // Asserting the value of isValid flag from the response
-        Assert.assertEquals(response.path("isValid"), Boolean.valueOf(isValid));
+        Assert.assertEquals(Boolean.valueOf(isValid), response.path("isValid"));
     }
 
     @Given("the bank account validation request without a JWT token") 
@@ -81,6 +81,6 @@ public class stepsAPI {
     @And("response body contains {string} message.")
     public void checkResponseMessage(String message) {
         // Asserting that contains the expected message
-        Assert.assertEquals(response.path("message"), message);
+        Assert.assertEquals(message, response.path("message"));
     }
 }
