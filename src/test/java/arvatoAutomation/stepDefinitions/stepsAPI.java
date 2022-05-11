@@ -38,9 +38,9 @@ public class stepsAPI {
     }
 
     // This step definition combines two steps since they perform the same action
-    @Given("^(?:{string} authentication token|the bank account validation request with {string} JWT token)$")
-    public void passAuth(String isValid) {
-        String token = isValid == "valid" ? authToken : "";
+    @Given("^(?:valid authentication token {string}|the bank account validation request without a JWT token {string})$")
+    public void passAuth(String withToken) {
+        String token = Boolean.valueOf(withToken) ? authToken : "";
 
         // Setting the uri, authorisation token and content type for the request method
         RestAssured.baseURI = baseUri;
