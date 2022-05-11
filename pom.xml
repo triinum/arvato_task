@@ -14,6 +14,7 @@
         <cucumber.version>7.3.4</cucumber.version>
         <junit.version>4.12</junit.version>
         <aspectj.version>1.8.4</aspectj.version>
+         <allure.version>2.13.1</allure.version>
     </properties>
 
     <dependencies>
@@ -67,6 +68,16 @@
             <artifactId>selenium-support</artifactId>
             <version>4.1.1</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber4-jvm</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-generator</artifactId>
+            <version>${allure.version}</version>
         </dependency>
     </dependencies>
 
