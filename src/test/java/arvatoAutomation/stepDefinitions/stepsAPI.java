@@ -60,7 +60,7 @@ public class stepsAPI {
     @Then("server responds with HTTP response code {int}")
     public void checkStatusCode(int statusCode) {
         // Asserting that status code from the response is equal to expected status code
-        Assert.assertEquals(statusCode, response.getStatusCode(),);
+        Assert.assertEquals(statusCode, response.getStatusCode());
     }
 
     @And("response body contains isValid {string}")

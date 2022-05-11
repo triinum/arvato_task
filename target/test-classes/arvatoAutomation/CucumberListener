@@ -1,0 +1,36 @@
+package java.arvatoAutomation;
+
+import io.cucumber.core.api.Scenario;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm;
+import org.junit.runner.notification.Failure;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class CucumberListener extends AllureCucumber4Jvm {
+
+    private final Logger slf4jLogger = LoggerFactory.getLogger(CucumberListener.class);
+
+    private Scenario scenario;
+
+    @Before
+    public void before(Scenario scenario) {
+        this.scenario = scenario;
+    }
+
+    @After
+    public  void after(Scenario scenario) {
+        if (scenario.isFailed()) {
+        }
+
+    }
+    @Attachment(value = "Failure", type = "text/plain")
+    public  String saveTextLog(String message) {
+        return message;
+    }
+
+
+}
