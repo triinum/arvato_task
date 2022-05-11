@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/arvatoAutomation.features",
         glue = {"arvatoAutomation.stepDefinitions"},
-        plugin = { "pretty", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm", "src/test/resources/arvatoAutomation.CucumberListener"}
+        plugin = { "pretty", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
 )
 public class RunCucumberTest {
 }
