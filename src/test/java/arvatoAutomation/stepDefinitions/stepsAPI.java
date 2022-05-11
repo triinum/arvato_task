@@ -37,15 +37,12 @@ public class stepsAPI {
         }
     }
 
-    // This step definition combines two steps since they perform the same action
-    @Given("^(?:valid authentication token {string}|the bank account validation request without a JWT token {string})$")
-    public void passAuth(String withToken) {
-        String token = Boolean.valueOf(withToken) ? authToken : "";
-
+    @And("valid authentication token")
+    public void passAuth() {
         // Setting the uri, authorisation token and content type for the request method
         RestAssured.baseURI = baseUri;
         request = RestAssured.given().
-                headers("X-Auth-Key", token).
+                headers("X-Auth-Key", authToken).
                 contentType("application/json");
     }
 
@@ -70,6 +67,15 @@ public class stepsAPI {
     public void checkIsValid(String isValid) {
         // Asserting the value of isValid flag from the response
         Assert.assertEquals(response.path("isValid"), Boolean.valueOf(isValid));
+    }
+
+    @Given("the bank account validation request without a JWT token") 
+    public void invalidAuth() {
+        // Setting the uri, invalid authorisation token and content type for the request method
+        RestAssured.baseURI = baseUri;
+        request = RestAssured.given().
+                headers("X-Auth-Key", "").
+                contentType("application/json");
     }
 
     @And("response body contains {string} message.")
